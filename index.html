@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajtilak Thakuria | Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Rajtilak Thakuria, BTech ECE student at NIT Silchar. Web developer and DSA enthusiast.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./styles/main.css">
+    <!-- Phosphor Icons for high-quality SVG icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+</head>
+
+<body>
+    <div id="scroll-progress"></div>
+    <div class="cursor-glow"></div>
+
+    <nav class="navbar">
+        <a href="#" class="logo">RT<span>.</span></a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <button class="mobile-menu-btn" aria-label="Toggle menu">
+            <i class="ph ph-list"></i>
+        </button>
+    </nav>
+
+    <main>
+        <section id="hero" class="hero section-hidden">
+            <div class="hero-content">
+                <p class="greeting">Hi, I am</p>
+                <h1 class="glitch-text" data-text="Rajtilak Thakuria">Rajtilak Thakuria</h1>
+                <div class="role-container">
+                    <span class="role-text static-text">I</span>
+                    <span class="role-text dynamic-text">make websites</span>
+                </div>
+                <p class="hero-desc">BTech Final Year (ECE) @ NIT Silchar. Bridging hardware logic with seamless web
+                    experiences.</p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="orb orb-1"></div>
+                <div class="orb orb-2"></div>
+                <div class="glass-card decorative-card">
+                    <i class="ph ph-code"></i>
+                    <span>Clean Code</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="about section-hidden">
+            <div class="section-header">
+                <h2><span class="num">01.</span> About Me</h2>
+                <div class="line"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a passionate web developer and final year BTech student majoring in Electronics and
+                        Communication Engineering at National Institute of Technology, Silchar.</p>
+                    <p>While my academic roots lie in hardware, my true passion flourishes in the digital realm. I
+                        specialize in building highly interactive, performant, and beautiful web applications. Beyond
+                        web dev, I frequently dive into Data Structures and Algorithms to sharpen my problem-solving
+                        skills.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <i class="ph ph-student"></i>
+                        <h3>B.Tech</h3>
+                        <p>NIT Silchar (ECE)</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="ph ph-code-block"></i>
+                        <h3>Web Dev</h3>
+                        <p>Frontend & Backend</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills section-hidden">
+            <div class="section-header">
+                <h2><span class="num">02.</span> My Toolkit</h2>
+                <div class="line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category glass-panel">
+                    <h3>Frontend</h3>
+                    <div class="skill-tags">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>React</span>
+                        <span>UI/Animations</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-panel">
+                    <h3>Problem Solving</h3>
+                    <div class="skill-tags">
+                        <span>C++</span>
+                        <span>Data Structures</span>
+                        <span>Algorithms</span>
+                        <span>Logic Design</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-panel">
+                    <h3>Tools & Others</h3>
+                    <div class="skill-tags">
+                        <span>Git</span>
+                        <span>GitHub</span>
+                        <span>Vercel</span>
+                        <span>VS Code</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects section-hidden">
+            <div class="section-header">
+                <h2><span class="num">03.</span> Featured Projects</h2>
+                <div class="line"></div>
+            </div>
+
+            <div class="projects-list">
+                <!-- Project 1: Hotelify -->
+                <article class="project-card">
+                    <div class="project-image-box placeholder-hotelify">
+                        <div class="overlay">
+                            <a href="https://hotelify-woad.vercel.app/" target="_blank" class="view-btn">
+                                <i class="ph ph-arrow-up-right"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">Featured Project</div>
+                        <h3>Hotelify</h3>
+                        <div class="project-desc glass-panel">
+                            <p>A comprehensive hotel booking application. It provides users with an intuitive interface
+                                to browse luxurious accommodations and seamlessly book their stay.</p>
+                        </div>
+                        <ul class="project-tech">
+                            <li>Web Tech</li>
+                            <li>Booking System</li>
+                            <li>Responsive UI</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://hotelify-woad.vercel.app/" target="_blank" aria-label="Live Demo"><i
+                                    class="ph ph-link"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: Blogosphere -->
+                <article class="project-card reverse">
+                    <div class="project-image-box placeholder-blogosphere">
+                        <div class="overlay">
+                            <a href="https://blogosphere-chi.vercel.app/" target="_blank" class="view-btn">
+                                <i class="ph ph-arrow-up-right"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">Featured Project</div>
+                        <h3>Blogosphere</h3>
+                        <div class="project-desc glass-panel">
+                            <p>A modern blogging platform designed for reading and writing engaging articles. Features a
+                                clean typography-focused design and smooth navigation.</p>
+                        </div>
+                        <ul class="project-tech">
+                            <li>CMS</li>
+                            <li>Modern UI</li>
+                            <li>Typography</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://blogosphere-chi.vercel.app/" target="_blank" aria-label="Live Demo"><i
+                                    class="ph ph-link"></i></a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3: System Diagnostic Tool -->
+                <article class="project-card">
+                    <div class="project-image-box placeholder-diagnostic">
+                        <div class="overlay">
+                            <a href="#" class="view-btn">
+                                <i class="ph ph-arrow-up-right"></i> View Project
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <div class="project-meta">Featured Project</div>
+                        <h3>System Diagnostic Tool</h3>
+                        <div class="project-desc glass-panel">
+                            <p>Developed a robust software tool to diagnose and streamline technical issues, improving efficiency in resolving user problems. Features comprehensive step-by-step documentation for seamless navigation across various operating systems.</p>
+                        </div>
+                        <ul class="project-tech">
+                            <li>Python</li>
+                            <li>SQL</li>
+                            <li>JavaScript</li>
+                            <li>Linux</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="#" aria-label="Project Link"><i class="ph ph-link"></i></a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="contact section-hidden">
+            <div class="contact-box glass-panel">
+                <h2>Get In Touch</h2>
+                <p>Whether you have a question, a project opportunity, or just want to say hi, my inbox is always open.
+                    Let's build something amazing together!</p>
+                <div class="social-links large">
+                    <a href="https://github.com/rajtilakthakuria91595-del" target="_blank" aria-label="GitHub">
+                        <i class="ph ph-github-logo"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/rajtilak-thakuria-457aa6257/" target="_blank"
+                        aria-label="LinkedIn">
+                        <i class="ph ph-linkedin-logo"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Designed & Built by Rajtilak Thakuria</p>
+    </footer>
+
+    <script src="./scripts/main.js"></script>
+</body>
+
+</html>
