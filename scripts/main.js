@@ -91,4 +91,32 @@ document.addEventListener('DOMContentLoaded', () => {
         const newColor = `rgb(${r}, ${g}, ${b})`;
         root.style.setProperty('--bg-color', newColor);
     });
+
+    // 5. Parallax Effect for Featured Work (Obscurities)
+    const featuredWork = document.querySelector('.featured-work');
+    const featuredBg = document.querySelector('.featured-bg-elements');
+    const featuredContent = document.querySelector('.featured-content');
+    const featuredImage = document.querySelector('.featured-image-wrapper');
+
+    if (featuredWork) {
+        window.addEventListener('scroll', () => {
+            // Only calculate if the section is in the viewport to save performance
+            const rect = featuredWork.getBoundingClientRect();
+            const inView = (rect.top <= window.innerHeight) && (rect.bottom >= 0);
+            
+            if (inView) {
+                // Calculate how far the section has scrolled relative to the center of the viewport
+                const centerOffset = (window.innerHeight / 2) - (rect.top + rect.height / 2);
+                
+                // Parallax scalar values
+                const bgSpeed = 0.15;
+                const contentSpeed = 0.3;
+                const imageSpeed = -0.2; // Moves in opposite direction for depth
+                
+                if (featuredBg) featuredBg.style.transform = `translate(-50%, calc(-50% + ${centerOffset * bgSpeed}px))`;
+                if (featuredContent) featuredContent.style.transform = `translateY(${centerOffset * contentSpeed}px)`;
+                if (featuredImage) featuredImage.style.transform = `translateY(${centerOffset * imageSpeed}px)`;
+            }
+        });
+    }
 });
