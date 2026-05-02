@@ -10,24 +10,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Space+Grotesk:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Space+Grotesk:wght@400;500;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./styles/main.css">
     <!-- Phosphor Icons for high-quality SVG icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <!-- GSAP for Portfolite-style cinematic animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
-    <div id="noise-overlay" class="noise-overlay"></div>
-    <div id="scroll-progress"></div>
     <div class="cursor-glow"></div>
 
-    <nav class="navbar">
+    <nav class="navbar gsap-nav">
         <a href="#" class="logo">RT<span>.</span></a>
         <div class="nav-links">
             <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
+            <a href="#projects">Work</a>
             <a href="#contact">Contact</a>
         </div>
         <button class="mobile-menu-btn" aria-label="Toggle menu">
@@ -36,127 +36,100 @@
     </nav>
 
     <main>
-        <section id="hero" class="hero section-hidden">
-            <div class="hero-content">
-                <p class="greeting">Hi, I am</p>
-                <h1 class="glitch-text" data-text="Rajtilak Thakuria">Rajtilak Thakuria</h1>
-                <div class="role-container">
-                    <span class="role-text static-text">I</span>
-                    <span class="role-text dynamic-text">make websites</span>
+        <!-- Hero Section: Portfolite Minimalist Style -->
+        <section id="hero" class="hero">
+            <div class="hero-center-content">
+                <div class="profile-container gsap-hero-item">
+                    <img src="./assets/dp.jpeg" alt="Rajtilak Thakuria Profile" class="profile-dp-new">
                 </div>
-                <p class="hero-desc">BTech Final Year (ECE) @ NIT Silchar. Bridging hardware logic with seamless web
-                    experiences.</p>
-                <div class="hero-actions">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Let's Talk</a>
+                <div class="hero-text-block gsap-hero-item">
+                    <h1 class="main-title">Rajtilak Thakuria</h1>
+                    <p class="hero-desc">BTech Final Year (ECE) @ NIT Silchar.<br>Crafting seamless digital experiences through clean code and minimalist design.</p>
                 </div>
-            </div>
-            <div class="hero-visual">
-                <div class="orb orb-1"></div>
-                <div class="orb orb-2"></div>
-                <img src="./assets/dp.jpeg" alt="Rajtilak Thakuria Profile" class="profile-dp">
-                <div class="glass-card decorative-card">
-                    <i class="ph ph-code"></i>
-                    <span>Clean Code</span>
+                <div class="hero-actions gsap-hero-item">
+                    <a href="#projects" class="btn btn-primary">View Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
                 </div>
             </div>
         </section>
 
-        <section id="about" class="about section-hidden">
-            <div class="section-header">
-                <h2><span class="num">01.</span> About Me</h2>
-                <div class="line"></div>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>I'm a passionate web developer and final year BTech student majoring in Electronics and
-                        Communication Engineering at National Institute of Technology, Silchar.</p>
-                    <p>While my academic roots lie in hardware, my true passion flourishes in the digital realm. I
-                        specialize in building highly interactive, performant, and beautiful web applications. Beyond
-                        web dev, I frequently dive into Data Structures and Algorithms to sharpen my problem-solving
-                        skills.</p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <i class="ph ph-student"></i>
-                        <h3>B.Tech</h3>
-                        <p>NIT Silchar (ECE)</p>
+        <!-- Bento Grid: About & Skills -->
+        <section id="about" class="bento-section">
+            <div class="bento-container">
+                <!-- About Card -->
+                <div class="bento-card bento-about gsap-fade-up">
+                    <div class="bento-header">
+                        <i class="ph ph-user"></i>
+                        <h2>About</h2>
                     </div>
-                    <div class="stat-card">
+                    <div class="bento-content">
+                        <p>I'm a passionate web developer majoring in Electronics and Communication Engineering at NIT Silchar.</p>
+                        <p>While my academic roots lie in hardware, my true passion flourishes in the digital realm. I specialize in building highly interactive, performant, and beautiful web applications. I frequently dive into Data Structures and Algorithms to sharpen my problem-solving skills.</p>
+                    </div>
+                </div>
+
+                <!-- Education Card -->
+                <div class="bento-card bento-education gsap-fade-up">
+                    <div class="bento-header">
+                        <i class="ph ph-graduation-cap"></i>
+                        <h3>Education</h3>
+                    </div>
+                    <div class="bento-content">
+                        <p class="highlight-text">B.Tech in ECE</p>
+                        <p class="text-muted">NIT Silchar</p>
+                    </div>
+                </div>
+
+                <!-- Focus Card -->
+                <div class="bento-card bento-focus gsap-fade-up">
+                    <div class="bento-header">
                         <i class="ph ph-code-block"></i>
-                        <h3>Web Dev</h3>
-                        <p>Frontend & Backend</p>
+                        <h3>Core Focus</h3>
+                    </div>
+                    <div class="bento-content">
+                        <p class="highlight-text">Web Dev & DSA</p>
+                        <p class="text-muted">Frontend / Backend</p>
+                    </div>
+                </div>
+
+                <!-- Skills Card -->
+                <div class="bento-card bento-skills gsap-fade-up">
+                    <div class="bento-header">
+                        <i class="ph ph-wrench"></i>
+                        <h2>Toolkit</h2>
+                    </div>
+                    <div class="skills-flex">
+                        <span class="skill-pill">HTML5</span>
+                        <span class="skill-pill">CSS3</span>
+                        <span class="skill-pill">JavaScript</span>
+                        <span class="skill-pill">React</span>
+                        <span class="skill-pill">C++</span>
+                        <span class="skill-pill">Data Structures</span>
+                        <span class="skill-pill">Algorithms</span>
+                        <span class="skill-pill">Git / GitHub</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="skills" class="skills section-hidden">
-            <div class="section-header">
-                <h2><span class="num">02.</span> My Toolkit</h2>
-                <div class="line"></div>
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <div class="section-header gsap-fade-up">
+                <h2>Selected Work</h2>
             </div>
-            <div class="skills-grid">
-                <div class="skill-category glass-panel">
-                    <h3>Frontend</h3>
-                    <div class="skill-tags">
-                        <span>HTML5</span>
-                        <span>CSS3</span>
-                        <span>JavaScript</span>
-                        <span>React</span>
-                        <span>UI/Animations</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-panel">
-                    <h3>Problem Solving</h3>
-                    <div class="skill-tags">
-                        <span>C++</span>
-                        <span>Data Structures</span>
-                        <span>Algorithms</span>
-                        <span>Logic Design</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-panel">
-                    <h3>Tools & Others</h3>
-                    <div class="skill-tags">
-                        <span>Git</span>
-                        <span>GitHub</span>
-                        <span>Vercel</span>
-                        <span>VS Code</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="featured-work" class="featured-work section-hidden parallax-container">
-            <div class="featured-wrapper">
-                <div class="featured-background parallax-bg"></div>
-                <div class="featured-content parallax-content">
-                    <h2 class="serif-title">Obscurities</h2>
-                    <p class="featured-desc">An exploration of weightlessness and depth. A premium UI experience blending sophisticated typography with dark, moody cinematic aesthetics.</p>
-                    <a href="#" class="btn btn-primary">Explore Case Study</a>
-                </div>
-                <div class="featured-image-container parallax-image">
-                    <img src="./assets/obscurities_placeholder.png" alt="Obscurities 3D Design" class="antigravity-img">
-                </div>
-            </div>
-        </section>
-
-        <section id="projects" class="projects section-hidden">
-            <div class="section-header">
-                <h2><span class="num">03.</span> Featured Projects</h2>
-                <div class="line"></div>
-            </div>
-
-            <div class="projects-list">
+            
+            <div class="projects-grid">
                 <!-- Project 1: Sentiment AI -->
-                <a href="https://saa-1-qvv8.onrender.com" target="_blank" class="project-card">
-                    <div class="project-image-bg" style="background-image: url('./assets/sentiment.png');"></div>
-                    <i class="ph ph-brain project-icon"></i>
-                    <div class="project-index">01</div>
+                <a href="https://saa-1-qvv8.onrender.com" target="_blank" class="project-card bento-card gsap-fade-up">
+                    <div class="project-image-wrapper">
+                        <div class="project-image" style="background-image: url('./assets/sentiment.png');"></div>
+                    </div>
                     <div class="project-info">
-                        <h3>Sentiment AI</h3>
-                        <p class="project-desc">Fast, highly accurate sentiment analysis API. Features Pydantic validation, error handling, and Docker containerization for seamless deployment.</p>
+                        <div class="project-header">
+                            <h3>Sentiment AI</h3>
+                            <i class="ph ph-arrow-up-right"></i>
+                        </div>
+                        <p class="project-desc">Fast, highly accurate sentiment analysis API. Features Pydantic validation, error handling, and Docker containerization.</p>
                         <ul class="project-tech">
                             <li>FastAPI</li>
                             <li>Python</li>
@@ -167,12 +140,15 @@
                 </a>
 
                 <!-- Project 2: Hotelify -->
-                <a href="https://hotelify-woad.vercel.app/" target="_blank" class="project-card">
-                    <div class="project-image-bg" style="background-image: url('./assets/hotelify.jpg');"></div>
-                    <i class="ph ph-buildings project-icon"></i>
-                    <div class="project-index">02</div>
+                <a href="https://hotelify-woad.vercel.app/" target="_blank" class="project-card bento-card gsap-fade-up">
+                    <div class="project-image-wrapper">
+                        <div class="project-image" style="background-image: url('./assets/hotelify.jpg');"></div>
+                    </div>
                     <div class="project-info">
-                        <h3>Hotelify</h3>
+                        <div class="project-header">
+                            <h3>Hotelify</h3>
+                            <i class="ph ph-arrow-up-right"></i>
+                        </div>
                         <p class="project-desc">A comprehensive hotel booking application. Intuitive interface to browse luxurious accommodations and seamlessly book stays.</p>
                         <ul class="project-tech">
                             <li>Web Tech</li>
@@ -183,12 +159,15 @@
                 </a>
 
                 <!-- Project 3: Blogosphere -->
-                <a href="https://blogosphere-chi.vercel.app/" target="_blank" class="project-card">
-                    <div class="project-image-bg" style="background-image: url('./assets/blogosphere.jpg');"></div>
-                    <i class="ph ph-article project-icon"></i>
-                    <div class="project-index">03</div>
+                <a href="https://blogosphere-chi.vercel.app/" target="_blank" class="project-card bento-card gsap-fade-up">
+                    <div class="project-image-wrapper">
+                        <div class="project-image" style="background-image: url('./assets/blogosphere.jpg');"></div>
+                    </div>
                     <div class="project-info">
-                        <h3>Blogosphere</h3>
+                        <div class="project-header">
+                            <h3>Blogosphere</h3>
+                            <i class="ph ph-arrow-up-right"></i>
+                        </div>
                         <p class="project-desc">A modern blogging platform designed for reading and writing engaging articles. Features a clean typography-focused design.</p>
                         <ul class="project-tech">
                             <li>CMS</li>
@@ -199,12 +178,15 @@
                 </a>
 
                 <!-- Project 4: System Diagnostic Tool -->
-                <a href="#" class="project-card">
-                    <div class="project-image-bg" style="background-image: url('./assets/diagnostic.png');"></div>
-                    <i class="ph ph-wrench project-icon"></i>
-                    <div class="project-index">04</div>
+                <a href="#" class="project-card bento-card gsap-fade-up">
+                    <div class="project-image-wrapper">
+                        <div class="project-image" style="background-image: url('./assets/diagnostic.png');"></div>
+                    </div>
                     <div class="project-info">
-                        <h3>Diagnostic Tool</h3>
+                        <div class="project-header">
+                            <h3>Diagnostic Tool</h3>
+                            <i class="ph ph-arrow-up-right"></i>
+                        </div>
                         <p class="project-desc">Robust software tool to diagnose and streamline technical issues. Features comprehensive step-by-step documentation.</p>
                         <ul class="project-tech">
                             <li>Python</li>
@@ -217,28 +199,25 @@
             </div>
         </section>
 
-        <section id="contact" class="contact section-hidden">
-            <div class="contact-box glass-panel">
-                <h2>Get In Touch</h2>
-                <p>Whether you have a question, a project opportunity, or just want to say hi, my inbox is always open.
-                    Let's build something amazing together!</p>
-                <div class="social-links large">
-                    <a href="https://github.com/rajtilakthakuria91595-del" target="_blank" aria-label="GitHub">
-                        <i class="ph ph-github-logo"></i>
-                        <span>GitHub</span>
+        <!-- Contact Section -->
+        <section id="contact" class="contact gsap-fade-up">
+            <div class="contact-bento bento-card">
+                <h2>Let's work together.</h2>
+                <p>Have a question or a project opportunity? My inbox is always open.</p>
+                <div class="social-links">
+                    <a href="https://github.com/rajtilakthakuria91595-del" target="_blank" aria-label="GitHub" class="social-btn">
+                        <i class="ph ph-github-logo"></i> GitHub
                     </a>
-                    <a href="https://www.linkedin.com/in/rajtilak-thakuria-457aa6257/" target="_blank"
-                        aria-label="LinkedIn">
-                        <i class="ph ph-linkedin-logo"></i>
-                        <span>LinkedIn</span>
+                    <a href="https://www.linkedin.com/in/rajtilak-thakuria-457aa6257/" target="_blank" aria-label="LinkedIn" class="social-btn">
+                        <i class="ph ph-linkedin-logo"></i> LinkedIn
                     </a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <p>Designed & Built by Rajtilak Thakuria</p>
+    <footer class="gsap-fade-up">
+        <p>© 2026 Rajtilak Thakuria. Designed with minimalist aesthetics.</p>
     </footer>
 
     <script src="./scripts/main.js"></script>
