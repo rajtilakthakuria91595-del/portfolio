@@ -1,7 +1,6 @@
-/* ==== PORTFOLITE AESTHETIC - CSS VARIABLES ==== */
 :root {
   /* Colors */
-  --bg-color: #0d0d0d;
+  --bg-color: #030303;
   --card-bg: #141414;
   --card-bg-hover: #1a1a1a;
   --text-main: #f5f5f5;
@@ -39,6 +38,17 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Galaxy Canvas */
+#galaxy-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Custom Cursor Glow (Subtle) */
