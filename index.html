@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Space+Grotesk:wght@400;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Space+Grotesk:wght@400;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="./styles/main.css">
     <!-- Phosphor Icons for high-quality SVG icons -->
@@ -18,6 +18,7 @@
 </head>
 
 <body>
+    <div id="noise-overlay" class="noise-overlay"></div>
     <div id="scroll-progress"></div>
     <div class="cursor-glow"></div>
 
@@ -127,21 +128,16 @@
             </div>
         </section>
 
-        <section id="featured-work" class="featured-work section-hidden">
+        <section id="featured-work" class="featured-work section-hidden parallax-container">
             <div class="featured-wrapper">
-                <div class="featured-noise-overlay"></div>
-                <div class="featured-bg-elements"></div>
-                
-                <div class="featured-content">
-                    <h2 class="featured-title">Obscurities</h2>
-                    <p class="featured-desc">A deep dive into abstract 3D forms. Exploring weightlessness, texture, and cinematic lighting in a digital space.</p>
-                    <a href="#" class="btn btn-primary featured-btn">View Project</a>
+                <div class="featured-background parallax-bg"></div>
+                <div class="featured-content parallax-content">
+                    <h2 class="serif-title">Obscurities</h2>
+                    <p class="featured-desc">An exploration of weightlessness and depth. A premium UI experience blending sophisticated typography with dark, moody cinematic aesthetics.</p>
+                    <a href="#" class="btn btn-primary">Explore Case Study</a>
                 </div>
-
-                <div class="featured-image-wrapper">
-                    <div class="featured-image-float">
-                        <img src="./assets/obscurities.png" alt="Obscurities 3D Project" class="featured-img">
-                    </div>
+                <div class="featured-image-container parallax-image">
+                    <img src="./assets/obscurities_placeholder.png" alt="Obscurities 3D Design" class="antigravity-img">
                 </div>
             </div>
         </section>
