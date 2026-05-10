@@ -12,9 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Camera Setup (Positioned to look slightly down at the galaxy)
     const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
-    camera.position.x = 2;
-    camera.position.y = 3;
-    camera.position.z = 4;
+    camera.position.x = 0;
+    camera.position.y = 2.5;
+    camera.position.z = 5;
     camera.lookAt(0, 0, 0);
     scene.add(camera);
 
@@ -39,51 +39,78 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Black Hole Setup (Gargantua Style) ---
     const blackHoleGroup = new THREE.Group();
     // Tilt the black hole slightly for a more cinematic view
-    blackHoleGroup.rotation.x = 0.2;
-    blackHoleGroup.rotation.z = -0.15;
+    blackHoleGroup.rotation.x = 0.3;
+    blackHoleGroup.rotation.z = -0.2;
     scene.add(blackHoleGroup);
 
     // 1. Event Horizon (The Black Sphere)
     const eventHorizonGeometry = new THREE.SphereGeometry(1.5, 64, 64);
-    const eventHorizonMaterial = new THREE.MeshBasicMaterial({ color: 0x000000 });
+    const eventHorizonMaterial = new THREE.MeshBasicMaterial({ 
+        color: 0x000000,
+        side: THREE.DoubleSide
+    });
     const eventHorizon = new THREE.Mesh(eventHorizonGeometry, eventHorizonMaterial);
     blackHoleGroup.add(eventHorizon);
+
+    // Add a glowing photon ring behind the black hole
+    const photonRingGeometry = new THREE.SphereGeometry(1.6, 64, 64);
+    const photonRingMaterial = new THREE.MeshBasicMaterial({ 
+        color: 0xffddaa, 
+        transparent: true, 
+        opacity: 0.6,
+        blending: THREE.AdditiveBlending,
+        side: THREE.BackSide
+    });
+    const photonRing = new THREE.Mesh(photonRingGeometry, photonRingMaterial);
+    blackHoleGroup.add(photonRing);
 
     // 2. Accretion Disk (Equatorial)
     const diskGroup = new THREE.Group();
     blackHoleGroup.add(diskGroup);
 
-    const diskGeometry = new THREE.RingGeometry(1.8, 3.8, 128);
-    const diskMaterial = new THREE.MeshBasicMaterial({
-        color: 0xffaa44,
+    const innerDiskGeo = new THREE.RingGeometry(1.6, 2.5, 128);
+    const innerDiskMat = new THREE.MeshBasicMaterial({
+        color: 0xffffff,
         side: THREE.DoubleSide,
         transparent: true,
-        opacity: 0.8,
+        opacity: 0.9,
         blending: THREE.AdditiveBlending
     });
-    const disk = new THREE.Mesh(diskGeometry, diskMaterial);
-    disk.rotation.x = Math.PI / 2; // Lay flat
-    diskGroup.add(disk);
-    
-    const diskOuterGeometry = new THREE.RingGeometry(3.8, 6.0, 128);
-    const diskOuterMaterial = new THREE.MeshBasicMaterial({
-        color: 0xff6600,
-        side: THREE.DoubleSide,
-        transparent: true,
-        opacity: 0.3,
-        blending: THREE.AdditiveBlending
-    });
-    const diskOuter = new THREE.Mesh(diskOuterGeometry, diskOuterMaterial);
-    diskOuter.rotation.x = Math.PI / 2;
-    diskGroup.add(diskOuter);
+    const innerDisk = new THREE.Mesh(innerDiskGeo, innerDiskMat);
+    innerDisk.rotation.x = Math.PI / 2; // Lay flat
+    diskGroup.add(innerDisk);
 
-    // 3. Fake Gravitational Lensing (Halo over the top)
-    const lensDiskGeometry = new THREE.RingGeometry(1.6, 4.0, 128);
-    const lensDiskMaterial = new THREE.MeshBasicMaterial({
+    const midDiskGeo = new THREE.RingGeometry(2.5, 4.5, 128);
+    const midDiskMat = new THREE.MeshBasicMaterial({
         color: 0xffaa44,
+        side: THREE.DoubleSide,
+        transparent: true,
+        opacity: 0.6,
+        blending: THREE.AdditiveBlending
+    });
+    const midDisk = new THREE.Mesh(midDiskGeo, midDiskMat);
+    midDisk.rotation.x = Math.PI / 2;
+    diskGroup.add(midDisk);
+    
+    const outerDiskGeo = new THREE.RingGeometry(4.5, 7.0, 128);
+    const outerDiskMat = new THREE.MeshBasicMaterial({
+        color: 0xff4400,
         side: THREE.DoubleSide,
         transparent: true,
         opacity: 0.2,
+        blending: THREE.AdditiveBlending
+    });
+    const outerDisk = new THREE.Mesh(outerDiskGeo, outerDiskMat);
+    outerDisk.rotation.x = Math.PI / 2;
+    diskGroup.add(outerDisk);
+
+    // 3. Fake Gravitational Lensing (Halo over the top)
+    const lensDiskGeometry = new THREE.RingGeometry(1.6, 5.0, 128);
+    const lensDiskMaterial = new THREE.MeshBasicMaterial({
+        color: 0xffddaa,
+        side: THREE.DoubleSide,
+        transparent: true,
+        opacity: 0.15,
         blending: THREE.AdditiveBlending
     });
     const lensDisk = new THREE.Mesh(lensDiskGeometry, lensDiskMaterial);
@@ -91,9 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
     blackHoleGroup.add(lensDisk);
 
     // Initial Positioning (Far behind)
-    const bhStartZ = -30;
-    const bhEndZ = 0;
+    const bhStartZ = -40;
+    const bhEndZ = 3.0; // Ends at 2 units away from the camera (z=5), filling the screen
     blackHoleGroup.position.z = bhStartZ;
+    blackHoleGroup.position.x = 0;
 
     // --- Galaxy Setup ---
     const parameters = {
@@ -273,8 +301,8 @@ document.addEventListener('DOMContentLoaded', () => {
         targetX = mouseX * 0.001;
         targetY = mouseY * 0.001;
 
-        camera.position.x += (targetX - camera.position.x + 2) * 0.02; // +2 offset from initial pos
-        camera.position.y += (-targetY - camera.position.y + 3) * 0.02; // +3 offset from initial pos
+        camera.position.x += (targetX - camera.position.x) * 0.02; 
+        camera.position.y += (-targetY - camera.position.y + 2.5) * 0.02; // +2.5 offset from initial pos
         camera.lookAt(scene.position);
 
         renderer.render(scene, camera);

@@ -50,6 +50,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // 4.5. "Suck in" effect for previous details (Hero and About)
+    gsap.to('.hero-center-content', {
+        scrollTrigger: {
+            trigger: '.hero',
+            start: "top top",
+            end: "bottom top",
+            scrub: 1
+        },
+        scale: 0.2,
+        opacity: 0,
+        y: 150,
+        rotationZ: 2,
+        ease: "power1.in"
+    });
+
+    gsap.to('.bento-container', {
+        scrollTrigger: {
+            trigger: '.bento-section',
+            start: "top top",
+            end: "bottom top",
+            scrub: 1
+        },
+        scale: 0.2,
+        opacity: 0,
+        y: 150,
+        rotationZ: -2,
+        ease: "power1.in"
+    });
+
     // 5. Portfolite 'Antigravity' Hover effects via GSAP
     // Apply floating hover to the profile picture
     const profile = document.querySelector('.profile-container');
